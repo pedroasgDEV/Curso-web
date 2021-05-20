@@ -1,1 +1,3 @@
-Curso de desenvolvimento web e mobile S
+Curso de desenvolvimento web e mobile
+Linguagens:
+Ferramentas:
