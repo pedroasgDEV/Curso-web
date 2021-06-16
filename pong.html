@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <title>Pong</title>
+        <script>
+        </script>
+    </head>
+    <body>
+        <center><canvas id="folha" width="800" height="500"></canvas>
+        <script>
+            var folha = document.getElementById("folha");
+            var area = folha.getContext("2d");
+            var alt_area = 500;
+            var lar_area = 800;
+            var lar_linha = lar_area/80;
+            var lar_bola = lar_area/100;
+            var alt_raquete = alt_area/10;
+            var lar_raquete = alt_area/100;
+            //Campo
+            area.fillStyle = '#340081';
+            area.fillRect(0,0,lar_area,alt_area)
+            //Linha 
+            area.fillStyle = '#ffffff';
+            area.fillRect(lar_area/2-lar_linha/2,0,lar_linha,alt_area);
+            //Raquete 1
+            area.fillRect(lar_raquete,alt_raquete/2,lar_raquete,alt_raquete);
+            //Raquete 2
+            area.fillRect(lar_area - lar_raquete*2,alt_area - alt_raquete*1.5,lar_raquete,alt_raquete);
+            //Bola
+            area.fillStyle = '#000000';
+            area.fillRect(30,30,lar_bola,lar_bola);
+            //
+            area.fillStyle = '#ffffff';
+        </script>
+    </body>
+</html>
