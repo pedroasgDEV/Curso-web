@@ -12,37 +12,84 @@
             window.onload = function () {
 				setInterval(play, 1000 / 60);
 			};
+            var folha = document.getElementById("folha");
+            var area = folha.getContext("2d");
+            var alt_area = 500;
+            var lar_area = 800;
+            var lar_linha = lar_area/80;
+            var lar_bola = lar_area/100;
+            var alt_raquete = alt_area/6;
+            var lar_raquete = alt_area/100;
             var x_bola = 30;
             var y_bola = 30;
+            var velx_bola = vely_bola = 0.75;
+            var acel_bola = 2;
+            var y_raqueteA = y_raqueteB = 225-30;
+            var pont_jogadorA = pont_jogadorB = 0;
+            var vel_raqueteA = 5;
+            folha.addEventListener('mousemove', function (e) {
+				y_raqueteA = e.clientY - alt_raquete/ 2;
+			});
             function play(){
-                var folha = document.getElementById("folha");
-                var area = folha.getContext("2d");
-                var alt_area = 500;
-                var lar_area = 800;
-                var lar_linha = lar_area/80;
-                var lar_bola = lar_area/100;
-                var alt_raquete = alt_area/10;
-                var lar_raquete = alt_area/100;
                 //Campo
                 area.fillStyle = '#a1007f';
                 area.fillRect(0,0,lar_area,alt_area)
                 //Linha 
                 area.fillStyle = '#ffffff';
                 area.fillRect(lar_area/2-lar_linha/2,0,lar_linha,alt_area);
-                //Raquete 1
-                area.fillRect(lar_raquete,alt_raquete/2,lar_raquete,alt_raquete);
-                //Raquete 2
-                area.fillRect(lar_area - lar_raquete*2,alt_area - alt_raquete*1.5,lar_raquete,alt_raquete);
+                //Raquete A
+                area.fillRect(0,y_raqueteA,lar_raquete,alt_raquete);
+                //Raquete B
+                area.fillRect((lar_area - lar_raquete),y_raqueteB,lar_raquete,alt_raquete);
+                //Mostrar pontuação
+                area.fillText('Humano ' + pont_jogadorA + ' pontos',100, 100);
+                area.fillText('Computador ' + pont_jogadorB + ' pontos', lar_area - 200, 100);
                 //Bola
                 area.fillStyle = '#000000';
                 area.fillRect(x_bola,y_bola,lar_bola,lar_bola);                
                 area.fillStyle = '#ffffff';
-                //if(x bola < lar_area - lar_bola){
-                    x_bola = x_bola + 1;                 
-                //};
-                //if(y_bola < alt_area - lar_bola){
-                    y_bola = y_bola + 1;                 
-                //};
+                //Movimentação da bola
+                x_bola = x_bola + velx_bola*acel_bola; 
+                y_bola = y_bola + vely_bola*acel_bola;
+                //Verificação de rebate do jogador A
+                if (x_bola >= 0 && x_bola <= lar_raquete && y_bola >= y_raqueteA && y_bola <= y_raqueteA + alt_raquete ){
+                    velx_bola = -velx_bola;
+                    acel_bola = acel_bola+1;
+                };
+                //Verificação de rebate do jogador B
+                if (x_bola >= lar_area - lar_raquete && x_bola <= lar_area && y_bola >= y_raqueteB && y_bola <= y_raqueteB + alt_raquete ){
+                    velx_bola = -velx_bola;
+                    acel_bola = acel_bola+1;
+                };
+                //verificação de ponto jogador A
+                if(x_bola >= lar_area){
+                    pont_jogadorA++;
+                    x_bola = lar_area/2;
+                    y_bola = alt_area/2;
+                    acel_bola = 2;
+                }; 
+                //verificação de ponto jogador B
+                if(x_bola < 0){
+                    pont_jogadorB++;
+                    x_bola = lar_area/2;
+                    y_bola = alt_area/2;
+                    acel_bola = 2;
+                };  
+                //Verificação lateral inferior
+                if (vely_bola > 0 && y_bola > (alt_area - lar_bola)){
+                    vely_bola = -vely_bola;
+                };
+                //verificação lateral superior
+                if (vely_bola < 0 && y_bola < 0){
+                    vely_bola = -vely_bola;
+                };
+                //Movimento da Raquete B
+                if(y_raqueteB + alt_raquete/2 < y_bola){
+                    y_raqueteB = y_raqueteB + vel_raqueteA;
+                }
+                else{
+                    y_raqueteB = y_raqueteB - vel_raqueteA; 
+                }
             };
         </script>
     </body>
