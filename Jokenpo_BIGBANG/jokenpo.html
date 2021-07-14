@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <title>jokenpo</title>
+    </head>
+    <body>
+
+        <canvas id="folhaA" width="500" height="250"></canvas>
+        <canvas id="folhaB" width="500" height="250"></canvas>
+
+        <script>
+            var folhaA = document.getElementById("folhaA");
+            var areaA = folhaA.getContext("2d");
+            var folhaB = document.getElementById("folhaB");
+            var areaB = folhaB.getContext("2d");
+
+            var alt_areas = 250;
+            var lar_areas = 500;
+
+            //Area jogador
+            areaA.fillStyle = '#ff0000';
+            areaA.fillRect(0,0, lar_areas, alt_areas);
+
+            //Area computador 
+            areaB.fillStyle = '#0000ff';
+            areaB.fillRect(0,0, lar_areas, alt_areas);
+        </script>
+    </body>
+</html>    
