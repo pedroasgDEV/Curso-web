@@ -1,3 +1,3 @@
 Curso de desenvolvimento web e mobile
-Linguagens:
+Linguagens: JavaScript,
 Ferramentas:
