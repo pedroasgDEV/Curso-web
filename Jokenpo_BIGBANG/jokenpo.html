@@ -2,12 +2,12 @@
 <html lang="pt-br">
     <head>
         <meta charset="UTF-8">
-        <title>jokenpo</title>
+        <title>Pedra-papel-tesoura-lagarto-Spock</title>
     </head>
     <body>
-
-        <canvas id="folhaA" width="500" height="250"></canvas>
-        <canvas id="folhaB" width="500" height="250"></canvas>
+<!-- Lembra de ajustar o tamanho do canvas  -->
+        <canvas id="folhaA" width="2700" height="600"></canvas>
+        <canvas id="folhaB" width="2700" height="600"></canvas>
 
         <script>
             var folhaA = document.getElementById("folhaA");
@@ -15,8 +15,8 @@
             var folhaB = document.getElementById("folhaB");
             var areaB = folhaB.getContext("2d");
 
-            var alt_areas = 250;
-            var lar_areas = 500;
+            var alt_areas = 600;
+            var lar_areas = 2700;
 
             //Area jogador
             areaA.fillStyle = '#ff0000';
