@@ -5,60 +5,72 @@
         <title>Pedra-papel-tesoura-lagarto-Spock</title>
     </head>
     <body>
-<!-- Lembra de ajustar o tamanho do canvas  -->
-        <canvas id="folhaA" width="2700" height="600">
-            <button id="botao_id" type="button">
-                <img src="/Jokenpo_BIGBANG/imagens/lagarto.png " alt="Botão">
-            </button>
+        <div id="tudo_id">
+            
+            <div id="JogaArea_id">
 
-            <button id="botao_id" type="button">
-                <img src="imagens/papel.png " alt="Botão">
-            </button>
+                <ul id="jogador_id" style="list-style: none;">
+                    <li><a>
+                        <img src="imagens/pedra.png " id="JogaPedra_id">
+                    </a></li>
+                    
+                    <li><a>
+                        <img src="imagens/papel.png "id="JogaPapel_id">
+                    </a></li>
+                    
+                    <li><a >
+                        <img src="imagens/tesoura.png "id="JogaTesoura_id">
+                    </a></li>
+                    
+                    <li><a>
+                        <img src="imagens/spock.png " id="JogaSpock_id">
+                    </a></li>
+                    
+                    <li><a>
+                        <img src="imagens/lagarto.png " id="JogaLagarto_id">
+                    </a></li>
+                </ul>
 
-            <button id="botao_id" type="button">
-                <img src="imagens/tesoura.png " alt="Botão">
-            </button>
+            </div>
+             
+            <div id="CompArea_id">
 
-            <button id="botao_id" type="button">
-                <img src="imagens/spock.png " alt="Botão">
-            </button>
+                <ul id="computador_id" style="list-style: none;">
+                    <li>
+                        <img src="imagens/pedra.png " id="CompPedra_id">
+                    </li>
+                    
+                    <li>
+                        <img src="imagens/papel.png " id="CompPapel_id">
+                    </li>
+                    
+                    <li>
+                        <img src="imagens/tesoura.png " id="CompTesoura_id">
+                    </li>
+                    
+                    <li>
+                        <img src="imagens/spock.png " id="CompSpock_id">
+                    </li>
+                    
+                    <li>
+                        <img src="imagens/lagarto.png "id="CompLagarto_id">
+                    </li>
+                </ul>
 
-            <button id="botao_id" type="button">
-                <img src="imagens/lagarto.png " alt="Botão">
-            </button>
-        </canvas>
-        <canvas id="folhaB" width="2700" height="600">
-            <button id="botao_id" type="button">
-                <img src="imagens/pedra.png " alt="Botão">
-            </button>
-
-            <button id="botao_id" type="button">
-                <img src="imagens/papel.png " alt="Botão">
-            </button>
-
-            <button id="botao_id" type="button">
-                <img src="/imagens/lagarto.png " alt="Botão">
-            </button>
-
-            <button id="botao_id" type="button">
-                <img src="imagens/spock.png " alt="Botão">
-            </button>
-
-            <button id="botao_id" type="button">
-                <img src="imagens/lagarto.png " alt="Botão">
-            </button>
-        </canvas>
-
-        <script>
-            var folhaA = document.getElementById("folhaA");
-            var areaA = folhaA.getContext("2d");
-            var folhaB = document.getElementById("folhaB");
-            var areaB = folhaB.getContext("2d");
-
-            var alt_areas = 600;
-            var lar_areas = 2700;
-
-            //Area jogador
+            </div>
+                
+        </div>
+            
+            <script>
+                var folhaA = document.getElementById("folhaA");
+                var areaA = folhaA.getContext("2d");
+                var folhaB = document.getElementById("folhaB");
+                var areaB = folhaB.getContext("2d");
+                
+                var alt_areas = 600;
+                var lar_areas = 2700;
+                
+                //Area jogador
             areaA.fillStyle = '#ff0000';
             areaA.fillRect(0,0, lar_areas, alt_areas);
 
