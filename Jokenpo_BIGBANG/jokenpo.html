@@ -8,6 +8,7 @@
                 margin:0%;
             }
             #JogaArea_id{
+                padding: 51px;
                 background-color: rgba(255, 0, 0, 0.534);
             }
 
@@ -15,27 +16,32 @@
                 text-align: center;
             }
             #CompArea_id{
-                background-color: rgba(0, 0, 255, 0.644);
+                padding: 51px;
+                background-color: rgba(0, 0, 255, 0.534);
             }
 
             ul{
                 margin:0%;
-                justify-content: center;
-                align-items: center;
+                padding: 0%;
+                list-style: none;
+                text-align: center;
             }
             
             li{
-                
-                display: inline-block;
-                list-style: none;
-                justify-content: center;
-                align-items: center;
+                display: inline;
+
             }
 
             img{
-                width:40%;
-                height:35%;
+                max-width: 330px;
             }
+            a {
+                opacity: 0.2;
+            }
+            #jogador_id a:hover{
+                opacity: 1;
+            }
+
         </style>
     </head>
     <body>
@@ -44,24 +50,24 @@
             <div id="JogaArea_id">
 
                 <ul id="jogador_id">
-                    <li><a>
-                        <img src="imagens/pedra.png " id="JogaPedra_id">
+                    <li><a id="JogaPedra_id">
+                        <img src="imagens/pedra.png ">
                     </a></li>
                     
-                    <li><a>
-                        <img src="imagens/papel.png "id="JogaPapel_id">
+                    <li><a id="JogaPapel_id">
+                        <img src="imagens/papel.png ">
                     </a></li>
                     
-                    <li><a >
-                        <img src="imagens/tesoura.png "id="JogaTesoura_id">
+                    <li><a id="JogaTesoura_id">
+                        <img src="imagens/tesoura.png ">
                     </a></li>
                     
-                    <li><a>
-                        <img src="imagens/spock.png " id="JogaSpock_id">
+                    <li><a id="JogaSpock_id">
+                        <img src="imagens/spock.png ">
                     </a></li>
                     
-                    <li><a>
-                        <img src="imagens/lagarto.png " id="JogaLagarto_id">
+                    <li><a id="JogaLagarto_id">
+                        <img src="imagens/lagarto.png ">
                     </a></li>
                 </ul>
 
@@ -72,25 +78,25 @@
             <div id="CompArea_id">
 
                 <ul id="computador_id">
-                    <li>
-                        <img src="imagens/pedra.png " id="CompPedra_id">
-                    </li>
+                    <li><a id="CompPedra_id">
+                        <img src="imagens/pedra.png ">
+                    </a></li>
                     
-                    <li>
-                        <img src="imagens/papel.png " id="CompPapel_id">
-                    </li>
+                    <li><a id="CompPapel_id">
+                        <img src="imagens/papel.png ">
+                    </a></li>
                     
-                    <li>
-                        <img src="imagens/tesoura.png " id="CompTesoura_id">
-                    </li>
+                    <li><a id="CompTesoura_id">
+                        <img src="imagens/tesoura.png ">
+                    </a></li>
                     
-                    <li>
-                        <img src="imagens/spock.png " id="CompSpock_id">
-                    </li>
+                    <li><a id="CompSpock_id">
+                        <img src="imagens/spock.png ">
+                    </a></li>
                     
-                    <li>
-                        <img src="imagens/lagarto.png "id="CompLagarto_id">
-                    </li>
+                    <li><a id="CompLagarto_id">
+                        <img src="imagens/lagarto.png ">
+                    </a></li>
                 </ul>
 
             </div>
@@ -98,6 +104,13 @@
         </div>
             
         <script>
+            document.getElementById(JogaPedra_id).onclick = function (){ joga = 1};
+            document.getElementById(JogaPapel_id).onclick = function (){ joga = 2};
+            document.getElementById(JogaTesoura_id).onclick = function (){ joga = 3};
+            document.getElementById(JogaSpock_id).onclick = function (){ joga = 4};
+            document.getElementById(JogaLagarto_id).onclick = function (){ joga = 5};
+            
+            console.log(joga);
         </script>
     </body>
 </html>    
