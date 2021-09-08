@@ -7,6 +7,7 @@
             html body{
                 margin:0%;
             }
+
             #JogaArea_id{
                 padding: 51px;
                 background-color: rgba(255, 0, 0, 0.534);
@@ -15,6 +16,7 @@
             #TextArea_id{
                 text-align: center;
             }
+
             #CompArea_id{
                 padding: 51px;
                 background-color: rgba(0, 0, 255, 0.534);
@@ -35,10 +37,17 @@
             img{
                 max-width: 330px;
             }
+            
             a {
                 opacity: 0.2;
             }
+
             #jogador_id a:hover{
+                opacity: 1;
+                cursor: pointer;
+            }
+
+            a.select{
                 opacity: 1;
             }
 
@@ -73,7 +82,7 @@
 
             </div>
             <div id="TextArea_id">
-                <h1><b>Hello word</b></h1>
+                <h1 id="texto_id"><b>🖖</b></h1>
             </div>
             <div id="CompArea_id">
 
@@ -104,13 +113,158 @@
         </div>
             
         <script>
-            document.getElementById(JogaPedra_id).onclick = function (){ joga = 1};
-            document.getElementById(JogaPapel_id).onclick = function (){ joga = 2};
-            document.getElementById(JogaTesoura_id).onclick = function (){ joga = 3};
-            document.getElementById(JogaSpock_id).onclick = function (){ joga = 4};
-            document.getElementById(JogaLagarto_id).onclick = function (){ joga = 5};
-            
-            console.log(joga);
+        
+            //função de gerar valor aleatorio
+            function random(min,max){
+                return Math.floor(Math.random() * (max - min)) + min;
+            };
+
+            //função de selecionar elemento
+            function selecionar(escolha,div){
+                if (escolha == 0){
+                    document.getElementById(div + "Pedra_id").classList.add("select");
+                };
+                if (escolha == 1){
+                    document.getElementById(div + "Papel_id").classList.add("select");
+
+                };
+                if (escolha == 2){
+                    document.getElementById(div + "Tesoura_id").classList.add("select");
+                };
+                if (escolha == 3){
+                    document.getElementById(div + "Spock_id").classList.add("select");
+
+                };
+                if (escolha == 4){
+                    document.getElementById(div + "Lagarto_id").classList.add("select");
+
+                };
+            };
+
+            //função de desselecionar elemento
+            function desselecionar(escolha,div){
+                if (escolha == 0){
+                    document.getElementById(div + "Pedra_id").classList.remove("select");
+                };
+                if (escolha == 1){
+                    document.getElementById(div + "Papel_id").classList.remove("select");
+
+                };
+                if (escolha == 2){
+                    document.getElementById(div + "Tesoura_id").classList.remove("select");
+                };
+                if (escolha == 3){
+                    document.getElementById(div + "Spock_id").classList.remove("select");
+
+                };
+                if (escolha == 4){
+                    document.getElementById(div + "Lagarto_id").classList.remove("select");
+
+                };
+            };
+
+            //função para saber quem venceu
+            function calcWin(jogador_escolha, computador_escolha){
+
+                //Empate
+                if (jogador_escolha == computador_escolha){
+                    document.getElementById("texto_id").innerHTML = "Aconteceu um empate";
+                };
+
+                //Jogador esolhe pedra
+                if ((jogador_escolha == 0 && computador_escolha == 1)){
+                    document.getElementById("texto_id").innerHTML = "Papel cobre pedra, então o azul ganha";
+                };
+                if (jogador_escolha == 0 && computador_escolha == 2){
+                    document.getElementById("texto_id").innerHTML = "Pedra quebra tesoura, então o vermelho ganha";
+                };
+                if (jogador_escolha == 0 && computador_escolha == 3){
+                    document.getElementById("texto_id").innerHTML = "Spock vaporiza pedra, então o azul ganha";
+                };
+                if (jogador_escolha == 0 && computador_escolha == 4){
+                    document.getElementById("texto_id").innerHTML = "Pedra esmaga lagarto, então o vermelho ganha";
+                };
+
+                //Jogador esolhe papel
+                if (jogador_escolha == 1 && computador_escolha == 0){
+                    document.getElementById("texto_id").innerHTML = "Papel cobre pedra, então o vemelho ganha";
+                };
+                if (jogador_escolha == 1 && computador_escolha == 2){
+                    document.getElementById("texto_id").innerHTML = "Tesoura corta papel, então o azul ganha";
+                };
+                if (jogador_escolha == 1 && computador_escolha == 3){
+                    document.getElementById("texto_id").innerHTML = "Papel refuta Spock, então o vermelho ganha";
+                };
+                if (jogador_escolha == 1 && computador_escolha == 4){
+                    document.getElementById("texto_id").innerHTML = "Lagarto come papel, então o azul ganha";
+                };
+
+                //Jogador esolhe tesoura
+                if (jogador_escolha == 2 && computador_escolha == 0){
+                    document.getElementById("texto_id").innerHTML = "Pedra quebra tesoura, então o azul ganha";
+                };
+                if (jogador_escolha == 2 && computador_escolha == 1){
+                    document.getElementById("texto_id").innerHTML = "Tesoura corta papel, então o vermelho ganha";
+                };
+                if (jogador_escolha == 2 && computador_escolha == 3){
+                    document.getElementById("texto_id").innerHTML = "Spock esmaga tesoura, então o azul ganha";
+                };
+                if (jogador_escolha == 2 && computador_escolha == 4){
+                    document.getElementById("texto_id").innerHTML = "Tesoura decapita lagarto, então o vermelho ganha";
+                };
+
+                //Jogador esolhe Spock
+                if (jogador_escolha == 3 && computador_escolha == 0){
+                    document.getElementById("texto_id").innerHTML = "Spock vaporiza pedra, então o vermelho ganha";
+                };
+                if (jogador_escolha == 3 && computador_escolha == 1){
+                    document.getElementById("texto_id").innerHTML = "Papel refuta Spock, então o azul ganha";
+                };
+                if (jogador_escolha == 3 && computador_escolha == 2){
+                    document.getElementById("texto_id").innerHTML = "Spock esmaga tesoura, então o vermelho ganha";
+                };
+                if (jogador_escolha == 3 && computador_escolha == 4){
+                    document.getElementById("texto_id").innerHTML = "Lagarto envenena Spock, então o azul ganha";
+                };
+
+                //Jogador esolhe Lagarto
+                if (jogador_escolha == 4 && computador_escolha == 0){
+                    document.getElementById("texto_id").innerHTML = "Pedra esmaga lagarto, então o azul ganha";
+                };
+                if (jogador_escolha == 4 && computador_escolha == 1){
+                    document.getElementById("texto_id").innerHTML = "Lagarto come papel, então o vermelho ganha";
+                };
+                if (jogador_escolha == 4 && computador_escolha == 2){
+                    document.getElementById("texto_id").innerHTML = "Tesoura decapita lagarto, então o azul ganha";
+                };
+                if (jogador_escolha == 4 && computador_escolha == 3){
+                    document.getElementById("texto_id").innerHTML = "Lagarto envenena Spock, então o vermelho ganha";
+                };
+
+            };
+
+            //função de jogar
+            function jogar (jogador_escolha){
+
+                selecionar(jogador_escolha, "Joga");
+
+                var computador_escolha = random(0,5);
+                selecionar(computador_escolha, "Comp");
+
+                calcWin(jogador_escolha, computador_escolha);
+                
+                setTimeout(function() {
+                    desselecionar(jogador_escolha, "Joga");
+                    desselecionar(computador_escolha, "Comp");
+                }, 750);
+            };
+
+            document.getElementById("JogaPedra_id").onclick = function(){ jogar(0); };
+            document.getElementById("JogaPapel_id").onclick = function(){ jogar(1); };
+            document.getElementById("JogaTesoura_id").onclick = function(){  jogar(2); };
+            document.getElementById("JogaSpock_id").onclick = function(){ jogar(3); };
+            document.getElementById("JogaLagarto_id").onclick = function(){ jogar (4); };
+
         </script>
     </body>
 </html>    
